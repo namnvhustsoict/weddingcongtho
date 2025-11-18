@@ -437,16 +437,16 @@
         }
         
         .role-label {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Playfair Display', sans-serif;
             font-size: 12px;
-            color: #666;
+            color: #8d8d8d;
             margin-bottom: 5px;
         }
         
         .name-script {
             font-family: 'Great Vibes', cursive;
             font-size: 24px;
-            color: #c41e3a;
+            color: #000000;
             margin-top: 5px;
         }
         
@@ -459,10 +459,10 @@
         }
         
         .heart-image {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             object-fit: cover;
-            transform: scale(4);
+            transform: scale(2);
 
         }
         
@@ -1020,7 +1020,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #ffffff;
+           
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
         }
 
         .parent-info-image-frame {
@@ -1054,7 +1057,6 @@
         .parent-info-family {
             display: flex;
             flex-direction: column;
-            gap: 12px;
             text-align: center;
         }
 
@@ -1062,7 +1064,7 @@
             font-family: 'Playfair Display', serif;
             font-size: 14px;
             letter-spacing: 2.5px;
-            color: #c41e3a;
+            color: #000000;
             font-weight: 700;
             text-transform: uppercase;
         }
@@ -1078,7 +1080,7 @@
         .parent-info-address {
             font-family: 'Roboto', sans-serif;
             font-size: 12px;
-            color: #666;
+            color: #535353;
             line-height: 1.7;
             margin-top: 8px;
         }
@@ -1088,13 +1090,14 @@
             display: flex;
             flex-direction: column;
             gap: 8px;
+            margin-top: 10px;
             text-align: center;
         }
 
         .parent-info-role {
             font-family: 'Dancing Script', cursive;
             font-size: 16px;
-            color: #888;
+            color: #000000;
             font-weight: 400;
         }
 
@@ -1146,7 +1149,7 @@
             }
 
             .parent-info-address {
-                font-size: 11px;
+                font-size: 12px;
             }
         }
 
@@ -1340,7 +1343,7 @@
                 width: 40px;
                 height: 40px;
                 object-fit: cover;
-                transform: scale(4);
+                transform: scale(2);
             }
             
             .parent-header {
@@ -1717,7 +1720,7 @@
                 <div class="parent-section groom-side">
                    
                     <div class="couple-role">
-                        <div class="role-label">Chú Rể</div>
+                        <div class="parent-info-role">Chú Rể</div>
                         <div class="name-script">Văn Công</div>
                     </div>
                 </div>
@@ -1730,7 +1733,7 @@
                 <!-- Nhà Gái -->
                 <div class="parent-section bride-side">
                     <div class="couple-role">
-                        <div class="role-label">Cô Dâu</div>
+                        <div class="parent-info-role">Cô Dâu</div>
                         <div class="name-script">Nguyễn Thơ</div>
                     </div>
                 </div>
@@ -1764,7 +1767,7 @@
 
                     <!-- Phần 2: Tiêu đề và tên chú rể -->
                     <div class="parent-info-couple">
-                        <div class="parent-info-role">Chú Rể</div>
+                        
                         <div class="parent-info-groom-name">Văn Công</div>
                     </div>
                 </div>
@@ -1788,7 +1791,7 @@
 
                     <!-- Phần 2: Tiêu đề và tên chú rể -->
                     <div class="parent-info-couple">
-                        <div class="parent-info-role">Cô Dâu</div>
+                        
                         <div class="parent-info-groom-name">Nguyễn Thơ</div>
                     </div>
                 </div>
