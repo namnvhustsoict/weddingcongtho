@@ -2059,11 +2059,11 @@
                 <div style="margin-bottom: 20px; text-align: center;">
                     <img src="images/qrtrai.jpeg" alt="QR Code Chú Rể" style="width: 250px; height: 250px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
                 </div>
-                <h1 style="color: #000000;">Ngân hàng</h3>
-                <p style="font-size: 18px; font-weight: 600; color: #000000;">MBBank</p>
-                <p class="account-number" id="groomAccount" style="color: #000000;">6860129096666</p>
-                <p style="font-size: 18px; font-weight: 600; color: #000000;">NGUYỄN VĂN CÔNG</p>
-                <button onclick="copyGroomAccount()" style="background: #fff; color: #c41e3a; padding: 10px 30px; border: none; border-radius: 25px; font-family: 'Dancing Script', cursive; font-size: 16px; cursor: pointer; margin-top: 15px; font-weight: 600;">📋 Sao chép STK</button>
+                <p style="font-size: 14px; color: #000000;">Ngân hàng</p>
+                <p style="font-size: 18px; color: #000000;">MBBank</p>
+                <p class="account-number" id="groomAccount" style="color: #000000; font-weight: 700; font-size: 24px;">6860129096666</p>
+                <p style="font-size: 18px; color: #000000;">NGUYỄN VĂN CÔNG</p>
+                <button onclick="copyGroomAccount()" style="background: transparent; color: #000000; padding: 10px 30px; border: 2px solid #000000; border-radius: 25px; font-family: 'Dancing Script', cursive; font-size: 16px; cursor: pointer; margin-top: 15px; font-weight: 600;">📋 Sao chép STK</button>
             </div>
         </div>
     </div>
@@ -2077,11 +2077,11 @@
                 <div style="margin-bottom: 20px; text-align: center;">
                     <img src="images/qrgai.jpeg" alt="QR Code Cô Dâu" style="width: 250px; height: 250px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
                 </div>
-                <h1 style="color: #000000;">Ngân hàng</h3>
-                <p style="font-size: 18px; font-weight: 600; color: #000000;">MBBank</p>
-                <p class="account-number" id="brideAccount" style="color: #000000;">0356258333</p>
-                <p style="font-size: 18px; font-weight: 600; color: #000000;">NGUYỄN THỊ THƠ</p>
-                <button onclick="copyBrideAccount()" style="background: #fff; color: #e91e63; padding: 10px 30px; border: none; border-radius: 25px; font-family: 'Dancing Script', cursive; font-size: 16px; cursor: pointer; margin-top: 15px; font-weight: 600;">📋 Sao chép STK</button>
+                <p style="font-size: 14px; color: #000000;">Ngân hàng</p>
+                <p style="font-size: 18px; color: #000000;">MBBank</p>
+                <p class="account-number" id="brideAccount" style="color: #000000; font-weight: 700; font-size: 24px;">0356258333</p>
+                <p style="font-size: 18px; color: #000000;">NGUYỄN THỊ THƠ</p>
+                <button onclick="copyBrideAccount()" style="background: transparent; color: #000000; padding: 10px 30px; border: 2px solid #000000; border-radius: 25px; font-family: 'Dancing Script', cursive; font-size: 16px; cursor: pointer; margin-top: 15px; font-weight: 600;">📋 Sao chép STK</button>
             </div>
         </div>
     </div>
@@ -2249,7 +2249,7 @@
         }
         
         function copyGroomAccount() {
-            const account = '1234567890'; // Thay số tài khoản thật của chú rể
+            const account = '6860129096666'; // Thay số tài khoản thật của chú rể
             navigator.clipboard.writeText(account).then(() => {
                 alert('✅ Đã sao chép số tài khoản chú rể: ' + account);
             }).catch(() => {
@@ -2267,7 +2267,7 @@
         }
         
         function copyBrideAccount() {
-            const account = '0987654321'; // Thay số tài khoản thật của cô dâu
+            const account = '0356258333'; // Thay số tài khoản thật của cô dâu
             navigator.clipboard.writeText(account).then(() => {
                 alert('✅ Đã sao chép số tài khoản cô dâu: ' + account);
             }).catch(() => {
