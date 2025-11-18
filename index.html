@@ -1934,8 +1934,8 @@
     <div class="music-toggle" id="musicToggle" title="Bật/Tắt nhạc">
         <img id="musicIcon" src="https://content.pancake.vn/1/02/d4/a7/88/fef5132f979892c1778a688f2039942fc24b396b332750179775f87e-w:200-h:200-l:8183-t:image/png.png" alt="Music">
     </div>
-    <audio id="bgMusic" loop preload="metadata">
-        <source src="https://www.youtube.com/watch?v=_8ldAdQd9WU&list=RD_8ldAdQd9WU&start_radio=1" type="audio/mpeg">
+    <audio id="bgMusic" loop preload="auto" muted>
+        <source src="audio/I_DO.mp3" type="audio/mpeg">
     </audio>
 
     <script>
@@ -2198,8 +2198,47 @@
             // Animation chạy 1.5s + delay 0.5s = 2s, sau đó đóng overlay
             setTimeout(() => {
                 doorOverlay.classList.add('closed');
+                
+                // Tự động phát nhạc sau khi cửa mở xong
+                setTimeout(() => {
+                    if (!isPlaying) {
+                        audio.muted = false; // Bỏ mute
+                        audio.play()
+                            .then(() => {
+                                musicIcon.src = ICON_ON;
+                                isPlaying = true;
+                            })
+                            .catch((err) => {
+                                console.warn('Không thể tự động phát nhạc:', err);
+                                // Fallback: phát khi có tương tác
+                                audio.muted = true; // Mute lại để chờ tương tác
+                            });
+                    }
+                }, 500); // Đợi thêm 0.5s sau khi cửa đóng
             }, 2000);
         });
+
+        // Phát nhạc khi người dùng tương tác với trang
+        function enableAutoPlay() {
+            if (!isPlaying) {
+                audio.muted = false; // Bỏ mute
+                audio.play()
+                    .then(() => {
+                        musicIcon.src = ICON_ON;
+                        isPlaying = true;
+                        // Xóa event listener sau khi đã phát nhạc thành công
+                        document.removeEventListener('click', enableAutoPlay);
+                        document.removeEventListener('touchstart', enableAutoPlay);
+                        document.removeEventListener('scroll', enableAutoPlay);
+                    })
+                    .catch(() => {});
+            }
+        }
+
+        // Lắng nghe các tương tác của người dùng
+        document.addEventListener('click', enableAutoPlay);
+        document.addEventListener('touchstart', enableAutoPlay);
+        document.addEventListener('scroll', enableAutoPlay, { once: true });
     </script>
 </body>
 </html>
