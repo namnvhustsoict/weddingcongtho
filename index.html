@@ -1654,6 +1654,7 @@
             width: 9.5%;
             height: auto;
             aspect-ratio: 1/1;
+            animation: bounce 2s ease-in-out infinite;
         }
 
         .select-date-30 {
@@ -1663,6 +1664,16 @@
             width: 9.5%;
             height: auto;
             aspect-ratio: 1/1;
+            animation: bounce 2s ease-in-out infinite 0.3s;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
        
@@ -1848,12 +1859,7 @@
 
        
 
-        <!-- Calendar Section -->
-        <div class="calendar-container">
-            <img src="image2/calendar.png" alt="Calendar" class="calendar-image">
-            <img src="image2/select_date.png" alt="Selected Date 29" class="select-date-29">
-            <img src="image2/select_date.png" alt="Selected Date 30" class="select-date-30">
-        </div>
+        
 
         <!-- Event Details -->
     <div style="text-align: center; width: 100%; max-width: 450px; margin: 20px auto; padding: 30px 20px; background: #ffffff; ">
@@ -1906,7 +1912,12 @@
             </div>
             
             <!-- calendar -->
-
+        <!-- Calendar Section -->
+        <div class="calendar-container">
+            <img src="image2/calendar.png" alt="Calendar" class="calendar-image">
+            <img src="image2/select_date.png" alt="Selected Date 29" class="select-date-29">
+            <img src="image2/select_date.png" alt="Selected Date 30" class="select-date-30">
+        </div>
         </div>
         
         <!-- Gallery Section -->
