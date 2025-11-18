@@ -980,7 +980,7 @@ body {
 
 .bank-card {
     background: white;
-    padding: 40px;
+    padding: 10px;
     border-radius: 20px;
     box-shadow: var(--shadow);
     text-align: center;
@@ -1000,7 +1000,7 @@ body {
 .bank-card h3 {
     color: var(--primary-color);
     font-size: 1.8rem;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 .bank-details p {
@@ -1013,7 +1013,7 @@ body {
 }
 
 .btn-copy {
-    margin-top: 20px;
+    margin-top: 0px;
     padding: 12px 30px;
     background: var(--primary-color);
     color: white;
