@@ -2038,6 +2038,27 @@
         <div style="text-align: center; width: 100%; margin: 20px auto; cursor: pointer;" onclick="openLightboxSingle('images/2.jpg')">
             <img src="images/2.jpg" alt="Wedding" style="width: 100%; max-width: 800px; height: auto; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 8px 25px rgba(196, 30, 58, 0.3)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.1)';">
         </div>
+
+        <section class="section scroll-reveal">
+            <div style="text-align: center; padding: 40px 20px;">
+                <h2 style="font-family: 'Dancing Script', cursive; font-size: 32px; color: #c41e3a; margin-bottom: 30px;">Gửi Mừng Cưới</h2>
+                
+                <div style="display: flex; flex-direction: column; gap: 20px; max-width: 400px; margin: 0 auto;">
+                    <!-- Button Mừng Cưới Chú Rể -->
+                    <button onclick="openGroomGift()" style="background: linear-gradient(135deg, #5a6946, #5a6946); color: #fff; padding: 18px 40px; border: none; border-radius: 50px; font-family: 'Dancing Script', cursive; font-size: 20px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 15px rgba(196, 30, 58, 0.3); transition: all 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                        <span>💐</span>
+                        <span>Gửi Mừng Cưới Chú Rể</span>
+                    </button>
+                    
+                    <!-- Button Mừng Cưới Cô Dâu -->
+                    <button onclick="openBrideGift()" style="background: linear-gradient(135deg, #e91e63, #c2185b); color: #fff; padding: 18px 40px; border: none; border-radius: 50px; font-family: 'Dancing Script', cursive; font-size: 20px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3); transition: all 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                        <span>💐</span>
+                        <span>Gửi Mừng Cưới Cô Dâu</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
         <!-- Footer -->
         <footer class="footer">
             <h3 style="color: #c41e3a; font-size: 32px; margin-bottom: 15px;">♥</h3>
@@ -2064,6 +2085,37 @@
     <audio id="bgMusic" loop preload="auto" muted>
         <source src="audio/I_Do.mp3" type="audio/mpeg">
     </audio>
+
+    <!-- Gift Popups -->
+    <!-- Popup Chú Rể -->
+    <div class="gift-popup" id="groomGiftPopup">
+        <div class="gift-content">
+            <div class="gift-close" onclick="closeGroomGift()">×</div>
+            <h3 style="font-family: 'Dancing Script', cursive; font-size: 28px; color: #c41e3a; margin-bottom: 20px;">Mừng Cưới Chú Rể</h3>
+            <div class="bank-card" style="background: linear-gradient(135deg, #c41e3a, #a01830);">
+                <h3>Ngân hàng</h3>
+                <p style="font-size: 18px; font-weight: 600;">TECHCOMBANK</p>
+                <p class="account-number" id="groomAccount">1234567890</p>
+                <p style="font-size: 18px; font-weight: 600;">NGUYỄN VĂN CÔNG</p>
+                <button onclick="copyGroomAccount()" style="background: #fff; color: #c41e3a; padding: 10px 30px; border: none; border-radius: 25px; font-family: 'Dancing Script', cursive; font-size: 16px; cursor: pointer; margin-top: 15px; font-weight: 600;">📋 Sao chép STK</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Cô Dâu -->
+    <div class="gift-popup" id="brideGiftPopup">
+        <div class="gift-content">
+            <div class="gift-close" onclick="closeBrideGift()">×</div>
+            <h3 style="font-family: 'Dancing Script', cursive; font-size: 28px; color: #e91e63; margin-bottom: 20px;">Mừng Cưới Cô Dâu</h3>
+            <div class="bank-card" style="background: linear-gradient(135deg, #e91e63, #c2185b);">
+                <h3>Ngân hàng</h3>
+                <p style="font-size: 18px; font-weight: 600;">VIETCOMBANK</p>
+                <p class="account-number" id="brideAccount">0987654321</p>
+                <p style="font-size: 18px; font-weight: 600;">NGUYỄN THỊ THƠ</p>
+                <button onclick="copyBrideAccount()" style="background: #fff; color: #e91e63; padding: 10px 30px; border: none; border-radius: 25px; font-family: 'Dancing Script', cursive; font-size: 16px; cursor: pointer; margin-top: 15px; font-weight: 600;">📋 Sao chép STK</button>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Gallery Images Array
@@ -2218,24 +2270,48 @@
             }
         });
         
-        // Gift Popup
-        function openGiftPopup() {
-            document.getElementById('giftPopup').classList.add('active');
+        // Gift Popup - Chú Rể
+        function openGroomGift() {
+            document.getElementById('groomGiftPopup').classList.add('active');
         }
         
-        function closeGiftPopup() {
-            document.getElementById('giftPopup').classList.remove('active');
+        function closeGroomGift() {
+            document.getElementById('groomGiftPopup').classList.remove('active');
         }
         
-        // Copy Account Number
-        function copyAccount() {
-            const account = '8838683860';
+        function copyGroomAccount() {
+            const account = '1234567890'; // Thay số tài khoản thật của chú rể
             navigator.clipboard.writeText(account).then(() => {
-                alert('✅ Đã sao chép số tài khoản: ' + account);
+                alert('✅ Đã sao chép số tài khoản chú rể: ' + account);
             }).catch(() => {
                 alert('❌ Không thể sao chép. Số TK: ' + account);
             });
         }
+
+        // Gift Popup - Cô Dâu
+        function openBrideGift() {
+            document.getElementById('brideGiftPopup').classList.add('active');
+        }
+        
+        function closeBrideGift() {
+            document.getElementById('brideGiftPopup').classList.remove('active');
+        }
+        
+        function copyBrideAccount() {
+            const account = '0987654321'; // Thay số tài khoản thật của cô dâu
+            navigator.clipboard.writeText(account).then(() => {
+                alert('✅ Đã sao chép số tài khoản cô dâu: ' + account);
+            }).catch(() => {
+                alert('❌ Không thể sao chép. Số TK: ' + account);
+            });
+        }
+
+        // Đóng popup khi click ra ngoài
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('gift-popup')) {
+                e.target.classList.remove('active');
+            }
+        });
         
         // Scroll Reveal Animation
         const observerOptions = {
